@@ -11,6 +11,7 @@ public class roadScript : MonoBehaviour
     public road2Script road2Script;
     public float road1Position = 0;
     public logicScript logic;
+    public int scoreStage = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +30,12 @@ public class roadScript : MonoBehaviour
         {
             transform.position = new Vector2(25, transform.position.y);
             Debug.Log("change position road 1");
+        }
+
+        if (logic.score == scoreStage)
+        {
+            velocity -= 1;
+            scoreStage += 5;
         }
     }
 }
