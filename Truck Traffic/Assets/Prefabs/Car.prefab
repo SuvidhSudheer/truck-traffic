@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 313399361481539770}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadScript: {fileID: 0}
   objectChecker: {fileID: 0}
+  logic: {fileID: 0}
 --- !u!1 &7407571371636849615
 GameObject:
   m_ObjectHideFlags: 0

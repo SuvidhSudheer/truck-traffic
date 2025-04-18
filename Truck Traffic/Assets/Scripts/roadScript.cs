@@ -7,11 +7,10 @@ using UnityEngine;
 public class roadScript : MonoBehaviour
 {
     private Rigidbody2D myRigidBody;
-    public float velocity = -5;
     public road2Script road2Script;
     public float road1Position = 0;
     public logicScript logic;
-    public int scoreStage = 5;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,12 +18,13 @@ public class roadScript : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         logic = GameObject.FindGameObjectWithTag("logic").GetComponent<logicScript>();
         road2Script = GameObject.FindGameObjectWithTag("roadLogic2").GetComponent<road2Script>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        myRigidBody.linearVelocity = new Vector2(velocity, myRigidBody.linearVelocity.y);
+        myRigidBody.linearVelocity = new Vector2(logic.velocity, myRigidBody.linearVelocity.y);
         road1Position = transform.position.x;
         if (transform.position.x <= -26)
         {
@@ -32,10 +32,6 @@ public class roadScript : MonoBehaviour
             Debug.Log("change position road 1");
         }
 
-        if (logic.score == scoreStage)
-        {
-            velocity -= 1;
-            scoreStage += 5;
-        }
+       
     }
 }

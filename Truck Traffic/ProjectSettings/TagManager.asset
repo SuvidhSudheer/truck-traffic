@@ -11,6 +11,9 @@ TagManager:
   - truck
   - cone
   - barricade
+  - objectChecker
+  - person
+  - car
   layers:
   - Default
   - TransparentFX

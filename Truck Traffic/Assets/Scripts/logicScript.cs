@@ -13,6 +13,10 @@ public class logicScript : MonoBehaviour
     public TMP_Text scoreText;
     public roadScript roadScript;
     public truckScript truckScript;
+    public static int difficultyGame = 0;
+    public int scoreStage = 5;
+    public int increment = 1;
+    public float velocity = -5;
 
 
 
@@ -21,16 +25,44 @@ public class logicScript : MonoBehaviour
     {
         roadScript = GameObject.FindGameObjectWithTag("roadLogic").GetComponent<roadScript>();
         truckScript = GameObject.FindGameObjectWithTag("truck").GetComponent<truckScript>();
+        if (difficultyGame == 1)
+        {
+            velocity = -5;
+            scoreStage = 8;
+            increment = 1;
+        }
+        else if (difficultyGame == 2)
+        {
+            velocity = -10;
+            scoreStage = 5;
+            increment = 2;
+        }
+        else if (difficultyGame == 3)
+        {
+            velocity = -15;
+            scoreStage = 2;
+            increment = 5;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (score == scoreStage)
+        {
+            velocity -= increment;
+            scoreStage += scoreStage;
+        }
     }
 
     public void restartGame()
     {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void startGame(int difficulty)
+    {
+        difficultyGame = difficulty;
         SceneManager.LoadScene("GameScene");
     }
 
@@ -51,6 +83,6 @@ public class logicScript : MonoBehaviour
     {
        
         yield return new WaitForSeconds((float)0.5);
-        roadScript.velocity = 0;
+        velocity = 0;
     }
 }

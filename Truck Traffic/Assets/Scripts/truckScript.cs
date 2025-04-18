@@ -17,6 +17,14 @@ public class truckScript : MonoBehaviour
         logic = GameObject.FindGameObjectWithTag("logic").GetComponent<logicScript>();
         DOTween.SetTweensCapacity(2500, 50);
         animator.SetInteger("moving", 1);
+        if (logicScript.difficultyGame == 3)
+        {
+            duration = 0.5;
+        }
+        else
+        {
+            duration = 0.8;
+        }
     }
 
     // Update is called once per frame

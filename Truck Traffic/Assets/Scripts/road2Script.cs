@@ -18,7 +18,7 @@ public class road2Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myRigidBody.linearVelocity = new Vector2(roadScript.velocity, myRigidBody.linearVelocity.y);
+        myRigidBody.linearVelocity = new Vector2(logic.velocity, myRigidBody.linearVelocity.y);
         road2Position = transform.position.x;
         if (transform.position.x <= -26)
         {
